@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<businessObjectModel xmlns="http://documentation.bonitasoft.com/bdm-xml-schema/1.0" modelVersion="1.0" productVersion="7.15.0">
+    <businessObjects>
+        <businessObject qualifiedName="travel.sa.model.P01Pagamento">
+            <description>Representa os detalhes financeiros da reserva</description>
+            <fields>
+                <field type="STRING" length="255" name="formaPagamento" nullable="false" collection="false">
+                    <description>Forma de pagamento (Cartão de Crédito, Boleto Bancário)</description>
+                </field>
+                <field type="INTEGER" length="255" name="parcelas" nullable="false" collection="false"/>
+                <field type="BOOLEAN" length="255" name="pago" nullable="false" collection="false"/>
+                <field type="DOUBLE" length="255" name="valor" nullable="false" collection="false"/>
+                <field type="BOOLEAN" length="255" name="sinal" nullable="false" collection="false"/>
+                <relationField type="AGGREGATION" reference="travel.sa.model.P01Reserva" fetchType="LAZY" name="reserva" nullable="false" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="travel.sa.model.P01Reserva">
+            <description>Combina os dados do cliente com os detalhes da reserva. Cada reserva está vinculada a uma viagem específica.</description>
+            <fields>
+                <field type="STRING" length="255" name="nome" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="nacionalidade" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="estadoCivil" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="profissao" nullable="false" collection="false"/>
+                <field type="LOCALDATE" length="255" name="dataNascimento" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="rg" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="cpf" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="passaporte" nullable="true" collection="false">
+                    <description>Opcional. Necessário somente em viagens internacionais.</description>
+                </field>
+                <field type="LOCALDATE" length="255" name="validadePassaporte" nullable="true" collection="false">
+                    <description></description>
+                </field>
+                <field type="STRING" length="255" name="email" nullable="false" collection="false"/>
+                <field type="LOCALDATE" length="255" name="dataPreenchimento" nullable="false" collection="false"/>
+                <relationField type="AGGREGATION" reference="travel.sa.model.P01Viagem" fetchType="LAZY" name="viagem" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="nomeConsultor" nullable="false" collection="false"/>
+                <field type="BOOLEAN" length="255" name="contratoValido" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="pagamentoConfirmado" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="travel.sa.model.P01Viagem">
+            <description>Representa um pacote de viagem, como um Surf Trip ou Viagem com Propósito</description>
+            <fields>
+                <field type="STRING" length="255" name="nome" nullable="false" collection="false"/>
+                <field type="LOCALDATE" length="255" name="inicio" nullable="false" collection="false"/>
+                <field type="LOCALDATE" length="255" name="fim" nullable="false" collection="false"/>
+                <field type="INTEGER" length="255" name="vagas" nullable="false" collection="false"/>
+                <field type="DOUBLE" length="255" name="valorSaldo" nullable="false" collection="false"/>
+                <field type="DOUBLE" length="255" name="valorSinal" nullable="false" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+    </businessObjects>
+</businessObjectModel>

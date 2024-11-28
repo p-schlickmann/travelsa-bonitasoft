@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
-  <process:MainProcess xmi:id="_oluNYK0HEe-NFthnTMh3CQ" name="Modelo01 - Solicitacao de Viagem" bonitaModelVersion="7.12.0-004">
+  <process:MainProcess xmi:id="_oluNYK0HEe-NFthnTMh3CQ" name="P01 - Solicitacao de Viagem" bonitaModelVersion="7.12.0-004">
     <elements xmi:type="process:Pool" xmi:id="_olu0cK0HEe-NFthnTMh3CQ" name="Solicitacao de Viagem" displayName="Solicitacao de Viagem">
       <elements xmi:type="process:Lane" xmi:id="_EyYkgK0VEe-NFthnTMh3CQ" name="Controlador" actor="_09AAMK0UEe-NFthnTMh3CQ">
         <elements xmi:type="process:Task" xmi:id="_pcswUK0VEe-NFthnTMh3CQ" documentation="Emite a cobrança do sinal para a confirmação da viagem em um software externo. O sinal possui o valor de 20% do total da reserva." name="T50 - Emitir cobrança do sinal" outgoing="_XR3FoK0XEe-NFthnTMh3CQ" incoming="_o6RYsK0VEe-NFthnTMh3CQ _zi1EEK0bEe-NFthnTMh3CQ" overrideActorsOfTheLane="false">
