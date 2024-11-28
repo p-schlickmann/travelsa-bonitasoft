@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organization:Organization xmlns:organization="http://documentation.bonitasoft.com/organization-xml-schema/1.1" name="TravelSA" description="A TRAVEL S/A é uma operadora de turismo brasileira que se destaca pela oferta de experiências exclusivas em viagens de grupo, com foco em nichos específicos como “Surf Trips” e “Viagens com Propósito”, voltadas especialmente para Meditação e Yoga.">
+  <customUserInfoDefinitions/>
+  <users>
+    <user userName="marina_damico">
+      <firstName>Marina</firstName>
+      <lastName>Damico</lastName>
+      <manager></manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">123</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="danilo_kazu">
+      <firstName>Danilo</firstName>
+      <lastName>Kazu</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">123</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="murilo_cassador">
+      <firstName>Murilo</firstName>
+      <lastName>Cassador</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">123</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="vitor_dutra">
+      <firstName>Vitor</firstName>
+      <lastName>Dutra</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">123</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="daniel_cruz">
+      <firstName>Daniel</firstName>
+      <lastName>Cruz</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">123</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="leonardo_froes">
+      <firstName>Leonardo</firstName>
+      <lastName>Froes</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">123</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="ricardo_pavlovitsch">
+      <firstName>Ricardo</firstName>
+      <lastName>Pavlovitsch</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">123</password>
+      <customUserInfoValues/>
+    </user>
+  </users>
+  <roles>
+    <role name="consultor">
+      <displayName>Consultor</displayName>
+      <description>Responsável pelo contato inicial, envio de confirmações e apoio ao cliente até a reserva da viagem.</description>
+    </role>
+    <role name="controlador">
+      <displayName>Controlador</displayName>
+      <description>Cuida das finanças, incluindo cobrança de saldo e emissão de passagens</description>
+    </role>
+    <role name="assessor">
+      <displayName>Assessor</displayName>
+      <description>Suporte presencial durante a viagem, criação de grupos no WhatsApp e gestão logística</description>
+    </role>
+    <role name="fotografo">
+      <displayName>Fotógrafo</displayName>
+      <description>Registra os momentos da viagem e organiza os arquivos para os clientes</description>
+    </role>
+  </roles>
+  <groups>
+    <group name="consultoria">
+      <displayName>Consultoria</displayName>
+      <description>Responsável pelo contato inicial e pela interação com os clientes.
+</description>
+    </group>
+    <group name="controleFinanceiro">
+      <displayName>Controle Financeiro</displayName>
+      <description>Gerencia cobranças e pagamentos</description>
+    </group>
+    <group name="operacaoESuporte">
+      <displayName>Operação e Suporte</displayName>
+      <description>Dá suporte durante as viagens e gerencia as atividades presenciais.</description>
+    </group>
+  </groups>
+  <memberships>
+    <membership>
+      <userName>marina_damico</userName>
+      <roleName>consultor</roleName>
+      <groupName>consultoria</groupName>
+    </membership>
+    <membership>
+      <userName>danilo_kazu</userName>
+      <roleName>consultor</roleName>
+      <groupName>consultoria</groupName>
+    </membership>
+    <membership>
+      <userName>murilo_cassador</userName>
+      <roleName>controlador</roleName>
+      <groupName>controleFinanceiro</groupName>
+    </membership>
+    <membership>
+      <userName>vitor_dutra</userName>
+      <roleName>fotografo</roleName>
+      <groupName>operacaoESuporte</groupName>
+    </membership>
+    <membership>
+      <userName>daniel_cruz</userName>
+      <roleName>fotografo</roleName>
+      <groupName>operacaoESuporte</groupName>
+    </membership>
+    <membership>
+      <userName>leonardo_froes</userName>
+      <roleName>assessor</roleName>
+      <groupName>operacaoESuporte</groupName>
+    </membership>
+    <membership>
+      <userName>marina_damico</userName>
+      <roleName>assessor</roleName>
+      <groupName>operacaoESuporte</groupName>
+    </membership>
+    <membership>
+      <userName>danilo_kazu</userName>
+      <roleName>assessor</roleName>
+      <groupName>operacaoESuporte</groupName>
+    </membership>
+    <membership>
+      <userName>ricardo_pavlovitsch</userName>
+      <roleName>controlador</roleName>
+      <groupName>controleFinanceiro</groupName>
+    </membership>
+    <membership>
+      <userName>ricardo_pavlovitsch</userName>
+      <roleName>consultor</roleName>
+      <groupName>consultoria</groupName>
+    </membership>
+  </memberships>
+</organization:Organization>
