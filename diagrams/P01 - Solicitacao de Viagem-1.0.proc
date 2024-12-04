@@ -13,7 +13,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_o6DWR60VEe-NFthnTMh3CQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_o6DWRq0VEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <formMapping xmi:type="process:FormMapping" xmi:id="_pct-dK0VEe-NFthnTMh3CQ">
-            <targetForm xmi:type="expression:Expression" xmi:id="_pct-da0VEe-NFthnTMh3CQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_hGSz4LKYEe-5WPr1J4TmCQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_pct-c60VEe-NFthnTMh3CQ"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_pct-dq0VEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
@@ -31,7 +31,7 @@
             <condition xmi:type="expression:Expression" xmi:id="_u1oVIK0bEe-NFthnTMh3CQ" name="7 Days 00:00:00" content="604800000L" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long"/>
           </BoundaryIntermediateEvents>
           <formMapping xmi:type="process:FormMapping" xmi:id="_Yn0L-a0XEe-NFthnTMh3CQ">
-            <targetForm xmi:type="expression:Expression" xmi:id="_Yn0L-q0XEe-NFthnTMh3CQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_hGSz4bKYEe-5WPr1J4TmCQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_Yn0L-K0XEe-NFthnTMh3CQ"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_Yn0L-60XEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
@@ -47,6 +47,172 @@
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_v0XkYa0SEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_v0XkYK0SEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_v0XkYq0SEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
+          <operations xmi:type="expression:Operation" xmi:id="_5MeGgLKUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5MetkLKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5MetkbKUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5MetkrKUEe-5WPr1J4TmCQ" name="reservaInput.nome" content="reservaInput?.nome" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5Metk7KUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5MetlLKUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setNome">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5MetlbKUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5MetlrKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5Metl7KUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5MetmLKUEe-5WPr1J4TmCQ" name="reservaInput.nacionalidade" content="reservaInput?.nacionalidade" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5MetmbKUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5MetmrKUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setNacionalidade">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5Metm7KUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5MetnLKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5MetnbKUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5MetnrKUEe-5WPr1J4TmCQ" name="reservaInput.estadoCivil" content="reservaInput?.estadoCivil" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5Metn7KUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5MetoLKUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setEstadoCivil">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5MetobKUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5MetorKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5Meto7KUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5MetpLKUEe-5WPr1J4TmCQ" name="reservaInput.profissao" content="reservaInput?.profissao" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5MetpbKUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5MetprKUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setProfissao">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5Metp7KUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5MetqLKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5MetqbKUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5MetqrKUEe-5WPr1J4TmCQ" name="reservaInput.dataNascimento" content="reservaInput?.dataNascimento" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.LocalDate">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5Metq7KUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5MetrLKUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setDataNascimento">
+              <inputTypes>java.time.LocalDate</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5MetrbKUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5MetrrKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5Metr7KUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5MetsLKUEe-5WPr1J4TmCQ" name="reservaInput.rg" content="reservaInput?.rg" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5MetsbKUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5MetsrKUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setRg">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5Mets7KUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5MettLKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5MettbKUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5MettrKUEe-5WPr1J4TmCQ" name="reservaInput.cpf" content="reservaInput?.cpf" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5Mett7KUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5MetuLKUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setCpf">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5MetubKUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5MeturKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5Metu7KUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5MetvLKUEe-5WPr1J4TmCQ" name="reservaInput.passaporte" content="reservaInput?.passaporte" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5MetvbKUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5MetvrKUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setPassaporte">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5Metv7KUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5MetwLKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5MetwbKUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5MetwrKUEe-5WPr1J4TmCQ" name="reservaInput.validadePassaporte" content="reservaInput?.validadePassaporte" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.LocalDate">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5Metw7KUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5MetxLKUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setValidadePassaporte">
+              <inputTypes>java.time.LocalDate</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5MetxbKUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5MetxrKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5Metx7KUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5MetyLKUEe-5WPr1J4TmCQ" name="reservaInput.email" content="reservaInput?.email" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5MetybKUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5MetyrKUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setEmail">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5Mety7KUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5MetzLKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5MetzbKUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5MetzrKUEe-5WPr1J4TmCQ" name="reservaInput.dataPreenchimento" content="reservaInput?.dataPreenchimento" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.LocalDate">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5Metz7KUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5Met0LKUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setDataPreenchimento">
+              <inputTypes>java.time.LocalDate</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5Met0bKUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5Met0rKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5Met07KUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5Met1LKUEe-5WPr1J4TmCQ" name="reservaInput.viagem" content="//Retrieve aggregated P01Viagem using its DAO and persistenceId&#xA;def p01ViagemVar = p01ViagemDAO.findByPersistenceId(reservaInput?.viagem?.persistenceId_string?.trim() ? reservaInput.viagem.persistenceId_string.toLong() : null)&#xA;if (!p01ViagemVar) {&#xA;&#x9;if (reservaInput?.viagem?.persistenceId_string?.trim() ? reservaInput.viagem.persistenceId_string.toLong() : null) {&#xA;&#x9;&#x9;throw new IllegalArgumentException(&quot;The aggregated reference of type `P01Viagem` with the persistence id &quot; + reservaInput?.viagem?.persistenceId_string?.trim() ? reservaInput.viagem.persistenceId_string.toLong() : null + &quot; has not been found.&quot;)&#xA;&#x9;}&#xA;&#x9;return null&#xA;}&#xA;return p01ViagemVar" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="travel.sa.model.P01Viagem">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5Met1bKUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_5Met1rKUEe-5WPr1J4TmCQ" name="p01ViagemDAO" content="p01ViagemDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="travel.sa.model.P01ViagemDAO" returnTypeFixed="true"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5Met17KUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setViagem">
+              <inputTypes>travel.sa.model.P01Viagem</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5Met2LKUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5Met2bKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5Met2rKUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5Met27KUEe-5WPr1J4TmCQ" name="reservaInput.nomeConsultor" content="reservaInput?.nomeConsultor" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5Met3LKUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5Met3bKUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setNomeConsultor">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5Met3rKUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5Met37KUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5Met4LKUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5Met4bKUEe-5WPr1J4TmCQ" name="reservaInput.contratoValido" content="reservaInput?.contratoValido" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5Met4rKUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5Met47KUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setContratoValido">
+              <inputTypes>java.lang.Boolean</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_5Met5LKUEe-5WPr1J4TmCQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_5Met5bKUEe-5WPr1J4TmCQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_5Met5rKUEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_5Met57KUEe-5WPr1J4TmCQ" name="reservaInput.pagamentoConfirmado" content="reservaInput?.pagamentoConfirmado" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_5Met6LKUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_5Met6bKUEe-5WPr1J4TmCQ" type="JAVA_METHOD" expression="setPagamentoConfirmado">
+              <inputTypes>java.lang.Boolean</inputTypes>
+            </operator>
+          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_v0XkY60SEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_v0XkZK0SEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_v0XkZa0SEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
@@ -56,9 +222,44 @@
             <condition xmi:type="expression:Expression" xmi:id="_Qc__QK0aEe-NFthnTMh3CQ" name="60 Days 00:00:00" content="5184000000L" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long"/>
           </BoundaryIntermediateEvents>
           <formMapping xmi:type="process:FormMapping" xmi:id="_0RG1ea0SEe-NFthnTMh3CQ">
-            <targetForm xmi:type="expression:Expression" xmi:id="_0RHcgK0SEe-NFthnTMh3CQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_OqLIwLKWEe-5WPr1J4TmCQ" name="newForm" content="2f278f46-102e-465e-a4ef-597eb781c94b" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
-          <contract xmi:type="process:Contract" xmi:id="_0RG1eK0SEe-NFthnTMh3CQ"/>
+          <contract xmi:type="process:Contract" xmi:id="_0RG1eK0SEe-NFthnTMh3CQ">
+            <inputs xmi:type="process:ContractInput" xmi:id="_5MUVgLKUEe-5WPr1J4TmCQ" name="reservaInput" type="COMPLEX" dataReference="reserva">
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MU8kLKUEe-5WPr1J4TmCQ" name="nome"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MU8kbKUEe-5WPr1J4TmCQ" name="nacionalidade"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MU8krKUEe-5WPr1J4TmCQ" name="estadoCivil"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MVjoLKUEe-5WPr1J4TmCQ" name="profissao"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MVjobKUEe-5WPr1J4TmCQ" name="dataNascimento" type="LOCALDATE"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MVjorKUEe-5WPr1J4TmCQ" name="rg"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MVjo7KUEe-5WPr1J4TmCQ" name="cpf"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MVjpLKUEe-5WPr1J4TmCQ" name="passaporte"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MVjpbKUEe-5WPr1J4TmCQ" name="validadePassaporte" type="LOCALDATE"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MVjprKUEe-5WPr1J4TmCQ" name="email"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MVjp7KUEe-5WPr1J4TmCQ" name="dataPreenchimento" type="LOCALDATE"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MVjqLKUEe-5WPr1J4TmCQ" name="viagem" type="COMPLEX">
+                <inputs xmi:type="process:ContractInput" xmi:id="_5MVjqbKUEe-5WPr1J4TmCQ" name="persistenceId_string"/>
+              </inputs>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MVjqrKUEe-5WPr1J4TmCQ" name="nomeConsultor"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MVjq7KUEe-5WPr1J4TmCQ" name="contratoValido" type="BOOLEAN"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_5MVjrLKUEe-5WPr1J4TmCQ" name="pagamentoConfirmado" type="BOOLEAN"/>
+            </inputs>
+            <constraints xmi:type="process:ContractConstraint" xmi:id="_5MdfcLKUEe-5WPr1J4TmCQ" expression="reservaInput?.nome != null" errorMessage="nome is mandatory for P01Reserva" name="mandatory_reservaInput_nome">
+              <inputNames>reservaInput</inputNames>
+            </constraints>
+            <constraints xmi:type="process:ContractConstraint" xmi:id="_5MdfcbKUEe-5WPr1J4TmCQ" expression="reservaInput?.email != null" errorMessage="email is mandatory for P01Reserva" name="mandatory_reservaInput_email">
+              <inputNames>reservaInput</inputNames>
+            </constraints>
+            <constraints xmi:type="process:ContractConstraint" xmi:id="_5MdfcrKUEe-5WPr1J4TmCQ" expression="reservaInput?.viagem != null" errorMessage="P01Viagem is mandatory for P01Reserva" name="mandatory_reservaInput_viagem">
+              <inputNames>reservaInput</inputNames>
+            </constraints>
+            <constraints xmi:type="process:ContractConstraint" xmi:id="_5Mdfc7KUEe-5WPr1J4TmCQ" expression="!reservaInput?.viagem || reservaInput?.viagem?.persistenceId_string" errorMessage="P01Viagem must reference an existing instance with a persistenceId for P01Reserva" name="aggregation_reservaInput_viagem">
+              <inputNames>reservaInput</inputNames>
+            </constraints>
+            <constraints xmi:type="process:ContractConstraint" xmi:id="_5MdfdLKUEe-5WPr1J4TmCQ" expression="reservaInput?.nomeConsultor != null" errorMessage="nomeConsultor is mandatory for P01Reserva" name="mandatory_reservaInput_nomeConsultor">
+              <inputNames>reservaInput</inputNames>
+            </constraints>
+          </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_0RHcga0SEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:EndEvent" xmi:id="_Zw53wK0TEe-NFthnTMh3CQ" name="Reserva cancelada" incoming="_fHgeIK0VEe-NFthnTMh3CQ _IDD0oK0hEe-NFthnTMh3CQ">
@@ -76,7 +277,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_sGRXdK0REe-NFthnTMh3CQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_sGRXc60REe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <formMapping xmi:type="process:FormMapping" xmi:id="_NDy2gK0UEe-NFthnTMh3CQ">
-            <targetForm xmi:type="expression:Expression" xmi:id="_NDy2ga0UEe-NFthnTMh3CQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_hGSz4rKYEe-5WPr1J4TmCQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_NDyPeK0UEe-NFthnTMh3CQ"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_NDy2gq0UEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
@@ -86,14 +287,23 @@
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_bllPgK0VEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_bll2ka0VEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:StartMessageEvent" xmi:id="_rbaPkLKCEe-5WPr1J4TmCQ" name="Solicitação de reserva via site" outgoing="_v0jxoK0SEe-NFthnTMh3CQ" event="aaa">
+        <elements xmi:type="process:StartMessageEvent" xmi:id="_rbaPkLKCEe-5WPr1J4TmCQ" name="Solicitação de reserva via site" outgoing="_v0jxoK0SEe-NFthnTMh3CQ" event="receiveReservation">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_v10PgK0KEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_v1zocK0KEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_v10Pga0KEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
         </elements>
       </elements>
+      <data xmi:type="process:BusinessObjectData" xmi:id="_9iKGoLKPEe-5WPr1J4TmCQ" name="pagamento" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Pagamento">
+        <defaultValue xmi:type="expression:Expression" xmi:id="_9iLUwLKPEe-5WPr1J4TmCQ" name="" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Object"/>
+      </data>
+      <data xmi:type="process:BusinessObjectData" xmi:id="_-USuMLKPEe-5WPr1J4TmCQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva">
+        <defaultValue xmi:type="expression:Expression" xmi:id="_-UUjYLKPEe-5WPr1J4TmCQ" name="" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Object"/>
+      </data>
+      <data xmi:type="process:BusinessObjectData" xmi:id="__IwRALKPEe-5WPr1J4TmCQ" name="viagem" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Viagem">
+        <defaultValue xmi:type="expression:Expression" xmi:id="__IwRAbKPEe-5WPr1J4TmCQ" name="" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Object"/>
+      </data>
       <formMapping xmi:type="process:FormMapping" xmi:id="_olu0g60HEe-NFthnTMh3CQ">
-        <targetForm xmi:type="expression:Expression" xmi:id="_olu0hK0HEe-NFthnTMh3CQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+        <targetForm xmi:type="expression:Expression" xmi:id="_hGSz47KYEe-5WPr1J4TmCQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
       <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_olu0ha0HEe-NFthnTMh3CQ">
         <targetForm xmi:type="expression:Expression" xmi:id="_olu0hq0HEe-NFthnTMh3CQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
@@ -108,11 +318,11 @@
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_fHgeIK0VEe-NFthnTMh3CQ" name="Não" target="_Zw53wK0TEe-NFthnTMh3CQ" source="_cAPyQK0VEe-NFthnTMh3CQ">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_fHhFMK0VEe-NFthnTMh3CQ"/>
-        <condition xmi:type="expression:Expression" xmi:id="_fHhFMa0VEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        <condition xmi:type="expression:Expression" xmi:id="_fHhFMa0VEe-NFthnTMh3CQ" name="falsy()" content="return false" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
-      <connections xmi:type="process:SequenceFlow" xmi:id="_o6RYsK0VEe-NFthnTMh3CQ" name="Sim" target="_pcswUK0VEe-NFthnTMh3CQ" source="_cAPyQK0VEe-NFthnTMh3CQ">
+      <connections xmi:type="process:SequenceFlow" xmi:id="_o6RYsK0VEe-NFthnTMh3CQ" name="Sim" target="_pcswUK0VEe-NFthnTMh3CQ" source="_cAPyQK0VEe-NFthnTMh3CQ" isDefault="true">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_o6RYsa0VEe-NFthnTMh3CQ"/>
-        <condition xmi:type="expression:Expression" xmi:id="_o6RYsq0VEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        <condition xmi:type="expression:Expression" xmi:id="_o6RYsq0VEe-NFthnTMh3CQ" name="truthy()" content="return true" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_XR3FoK0XEe-NFthnTMh3CQ" target="_YnxvsK0XEe-NFthnTMh3CQ" source="_pcswUK0VEe-NFthnTMh3CQ">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_XR3Foa0XEe-NFthnTMh3CQ"/>
@@ -134,7 +344,7 @@
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_IDFCwK0hEe-NFthnTMh3CQ"/>
         <condition xmi:type="expression:Expression" xmi:id="_IDFCwa0hEe-NFthnTMh3CQ" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
-      <actors xmi:type="process:Actor" xmi:id="_olu0iq0HEe-NFthnTMh3CQ" documentation="Consultor responsável por iniciar a viagem" name="ConsultorDaViagem" initiator="true"/>
+      <actors xmi:type="process:Actor" xmi:id="_olu0iq0HEe-NFthnTMh3CQ" documentation="Consultor responsável por iniciar a viagem" name="ConsultorDaViagem"/>
       <actors xmi:type="process:Actor" xmi:id="_09AAMK0UEe-NFthnTMh3CQ" documentation="Controlador responsável por gerenciar a viagem" name="ControladorDaViagem"/>
       <contract xmi:type="process:Contract" xmi:id="_olu0i60HEe-NFthnTMh3CQ"/>
       <searchIndexes xmi:type="process:SearchIndex" xmi:id="_olu0jK0HEe-NFthnTMh3CQ">
