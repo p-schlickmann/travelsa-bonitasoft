@@ -2,7 +2,7 @@
   "modelVersion" : "2.3",
   "id" : "T10confirmarReserva",
   "name" : "T10confirmarReserva",
-  "lastUpdate" : 1733529588731,
+  "lastUpdate" : 1733531740082,
   "rows" : [
     [
       {
@@ -423,7 +423,7 @@
                         },
                         "value" : {
                           "type" : "variable",
-                          "value" : "viagemId.value || formInput.reservaInput.viagem"
+                          "value" : "viagemId.value"
                         },
                         "required" : {
                           "type" : "constant",
@@ -443,7 +443,7 @@
                         },
                         "returnedKey" : {
                           "type" : "constant",
-                          "value" : "id"
+                          "value" : "persistenceId_string"
                         }
                       },
                       "reference" : "fa460231-d443-41c0-b6bd-6d4a032334d8",

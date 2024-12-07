@@ -58,9 +58,22 @@ function getUserInput(question) {
 (async function main() {
   try {
     await loginToBonita();
-    const trips = await makeAuthenticatedAPICall('/API/bdm/businessData/travel.sa.model.P01Viagem?q=find&p=0&c=99')
-    console.log(trips.data)
-    const email = await getUserInput('📧 Por favor insira seu email para mais informações sobre a viagem: ');
+    const {data: trips} = await makeAuthenticatedAPICall('/API/bdm/businessData/travel.sa.model.P01Viagem?q=find&p=0&c=99')
+    console.log("\n🌍 Viagens disponíveis:");
+    trips.forEach((trip, idx) => {
+      console.log(`${idx + 1}. ${trip.nome} (Início: ${trip.inicio}, Fim: ${trip.fim})`);
+    });
+    const selectedTripIndex = await getUserInput('\nDigite o número da viagem que deseja selecionar: ');
+    const selectedTrip = trips[parseInt(selectedTripIndex, 10) - 1];
+
+    if (!selectedTrip) {
+      console.error("❌  Viagem inválida selecionada.");
+      return;
+    }
+    console.log(`✅  Você selecionou a viagem: ${selectedTrip.nome}`);
+
+    const email = await getUserInput('\n📧 Por favor insira seu email para mais informações sobre a viagem: ');
+    const name = await getUserInput('🙂 E seu nome: ');
 
     const startProcess = await makeAuthenticatedAPICall(
       '/API/bpm/message',
@@ -73,6 +86,14 @@ function getUserInput(question) {
             "value": email,
             "type": "java.lang.String"
           },
+          "nomeCliente": {
+            "value": name,
+            "type": "java.lang.String"
+          },
+          "viagemId": {
+            "value": selectedTrip.persistenceId,
+            "type": "java.lang.Integer"
+          }
         }
       }
     );
