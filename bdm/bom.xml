@@ -10,7 +10,6 @@
                 <field type="INTEGER" length="255" name="parcelas" nullable="false" collection="false"/>
                 <field type="BOOLEAN" length="255" name="pago" nullable="false" collection="false"/>
                 <field type="DOUBLE" length="255" name="valor" nullable="false" collection="false"/>
-                <field type="BOOLEAN" length="255" name="sinal" nullable="false" collection="false"/>
                 <relationField type="AGGREGATION" reference="travel.sa.model.P01Reserva" fetchType="LAZY" name="reserva" nullable="false" collection="false"/>
             </fields>
             <uniqueConstraints/>
@@ -51,8 +50,7 @@
                 <field type="LOCALDATE" length="255" name="inicio" nullable="false" collection="false"/>
                 <field type="LOCALDATE" length="255" name="fim" nullable="false" collection="false"/>
                 <field type="INTEGER" length="255" name="vagas" nullable="false" collection="false"/>
-                <field type="DOUBLE" length="255" name="valorSaldo" nullable="false" collection="false"/>
-                <field type="DOUBLE" length="255" name="valorSinal" nullable="false" collection="false"/>
+                <field type="DOUBLE" length="255" name="valor" nullable="false" collection="false"/>
             </fields>
             <uniqueConstraints/>
             <queries/>

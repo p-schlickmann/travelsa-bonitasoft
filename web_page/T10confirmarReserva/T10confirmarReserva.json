@@ -2,7 +2,7 @@
   "modelVersion" : "2.3",
   "id" : "T10confirmarReserva",
   "name" : "T10confirmarReserva",
-  "lastUpdate" : 1733357235533,
+  "lastUpdate" : 1733529588731,
   "rows" : [
     [
       {
@@ -160,6 +160,10 @@
                   "dimension" : {
                     "type" : "constant",
                     "value" : 12
+                  },
+                  "allowHTML" : {
+                    "type" : "constant",
+                    "value" : false
                   }
                 },
                 "reference" : "6a230147-c766-4b69-8883-7529b1f9c501",
@@ -237,7 +241,8 @@
                           "value" : "Nome"
                         },
                         "placeholder" : {
-                          "type" : "constant"
+                          "type" : "constant",
+                          "value" : ""
                         },
                         "type" : {
                           "type" : "constant",
@@ -249,11 +254,33 @@
                         },
                         "value" : {
                           "type" : "variable",
-                          "value" : "formInput.reservaInput.nome"
+                          "value" : "nomeCliente.value || formInput.reservaInput.nome"
                         },
                         "required" : {
                           "type" : "constant",
                           "value" : true
+                        },
+                        "allowHTML" : {
+                          "type" : "constant",
+                          "value" : false
+                        },
+                        "minLength" : {
+                          "type" : "constant",
+                          "value" : ""
+                        },
+                        "maxLength" : {
+                          "type" : "constant",
+                          "value" : ""
+                        },
+                        "min" : {
+                          "type" : "constant"
+                        },
+                        "max" : {
+                          "type" : "constant"
+                        },
+                        "step" : {
+                          "type" : "constant",
+                          "value" : 1
                         }
                       },
                       "reference" : "03d61add-c4ac-4333-866d-08c080a149bc",
@@ -313,11 +340,33 @@
                         },
                         "value" : {
                           "type" : "variable",
-                          "value" : "formInput.reservaInput.email"
+                          "value" : "emailCliente.value || formInput.reservaInput.email"
                         },
                         "required" : {
                           "type" : "constant",
                           "value" : true
+                        },
+                        "allowHTML" : {
+                          "type" : "constant",
+                          "value" : false
+                        },
+                        "minLength" : {
+                          "type" : "constant",
+                          "value" : ""
+                        },
+                        "maxLength" : {
+                          "type" : "constant",
+                          "value" : ""
+                        },
+                        "min" : {
+                          "type" : "constant"
+                        },
+                        "max" : {
+                          "type" : "constant"
+                        },
+                        "step" : {
+                          "type" : "constant",
+                          "value" : 1
                         }
                       },
                       "reference" : "ea2574e7-c1b7-4442-8ee5-54661bb309ad",
@@ -366,7 +415,7 @@
                         },
                         "placeholder" : {
                           "type" : "constant",
-                          "value" : "Select a Viagem"
+                          "value" : "Selecione uma Viagem"
                         },
                         "dimension" : {
                           "type" : "constant",
@@ -374,11 +423,27 @@
                         },
                         "value" : {
                           "type" : "variable",
-                          "value" : "formInput.reservaInput.viagem"
+                          "value" : "viagemId.value || formInput.reservaInput.viagem"
                         },
                         "required" : {
                           "type" : "constant",
                           "value" : true
+                        },
+                        "disabled" : {
+                          "type" : "constant",
+                          "value" : false
+                        },
+                        "allowHTML" : {
+                          "type" : "constant",
+                          "value" : false
+                        },
+                        "displayedKey" : {
+                          "type" : "constant",
+                          "value" : "nome"
+                        },
+                        "returnedKey" : {
+                          "type" : "constant",
+                          "value" : "id"
                         }
                       },
                       "reference" : "fa460231-d443-41c0-b6bd-6d4a032334d8",
@@ -686,6 +751,27 @@
       "type" : "urlparameter",
       "value" : [
         "id"
+      ],
+      "exposed" : false
+    },
+    "emailCliente" : {
+      "type" : "url",
+      "value" : [
+        "../API/bpm/caseVariable/{{task.caseId}}/emailCliente"
+      ],
+      "exposed" : false
+    },
+    "nomeCliente" : {
+      "type" : "url",
+      "value" : [
+        "../API/bpm/caseVariable/{{task.caseId}}/nomeCliente"
+      ],
+      "exposed" : false
+    },
+    "viagemId" : {
+      "type" : "url",
+      "value" : [
+        "../API/bpm/caseVariable/{{task.caseId}}/viagemId"
       ],
       "exposed" : false
     }

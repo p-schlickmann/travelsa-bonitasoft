@@ -3,14 +3,13 @@ const readline = require('readline');
 
 // Configuration
 const bonitaBaseURL = 'http://localhost:8080/bonita';
-const username = 'install';
-const password = 'install';
+const username = 'marina_damico';
+const password = '123';
 
 // Variables to store session cookie and API token
 let sessionCookie = '';
 let apiToken = '';
 
-// Function to log in to Bonita
 async function loginToBonita() {
   const response = await axios.post(
     `${bonitaBaseURL}/loginservice`,
@@ -21,8 +20,6 @@ async function loginToBonita() {
       },
     }
   );
-
-  // Extract session cookie
   sessionCookie = response.headers['set-cookie']
     .find((cookie) => cookie.startsWith('JSESSIONID'))
     .split(';')[0];
@@ -58,57 +55,12 @@ function getUserInput(question) {
   });
 }
 
-async function createSampleTrips() {
-  const sampleTrips = [
-    {
-      name: "Surf Adventure Bali",
-      startDate: "2024-12-01",
-      endDate: "2024-12-08",
-      maxParticipants: 15,
-      packagePrice: 1200.0,
-      downPayment: 300.0,
-    },
-    {
-      name: "Yoga Retreat Maldives",
-      startDate: "2024-12-10",
-      endDate: "2024-12-17",
-      maxParticipants: 10,
-      packagePrice: 1500.0,
-      downPayment: 400.0,
-    },
-    {
-      name: "Cultural Tour Japan",
-      startDate: "2024-12-20",
-      endDate: "2024-12-27",
-      maxParticipants: 12,
-      packagePrice: 2000.0,
-      downPayment: 500.0,
-    },
-  ];
-
-  for (const trip of sampleTrips) {
-    const response = await makeAuthenticatedAPICall(
-      "/API/bdm/businessData/travel.sa.model.P01Viagem",
-      "POST",
-      {
-        name: trip.name,
-        startDate: trip.startDate,
-        endDate: trip.endDate,
-        maxParticipants: trip.maxParticipants,
-        packagePrice: trip.packagePrice,
-        downPayment: trip.downPayment,
-      }
-    );
-    console.log(`✅ Trip "${trip.name}" created successfully.`);
-  }
-}
-
 (async function main() {
   try {
-    const email = await getUserInput('📧 Por favor insira seu email para mais informações sobre a viagem: ');
-
     await loginToBonita();
-    await createSampleTrips();
+    const trips = await makeAuthenticatedAPICall('/API/bdm/businessData/travel.sa.model.P01Viagem?q=find&p=0&c=99')
+    console.log(trips.data)
+    const email = await getUserInput('📧 Por favor insira seu email para mais informações sobre a viagem: ');
 
     const startProcess = await makeAuthenticatedAPICall(
       '/API/bpm/message',
@@ -117,7 +69,7 @@ async function createSampleTrips() {
         "messageName": "receiveReservation",
         "targetProcess": "Solicitacao de Viagem",
         "messageContent": {
-          "email": {
+          "emailCliente": {
             "value": email,
             "type": "java.lang.String"
           },
