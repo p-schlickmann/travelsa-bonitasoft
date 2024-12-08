@@ -2,7 +2,7 @@
   "modelVersion" : "2.3",
   "id" : "T10confirmarReserva",
   "name" : "T10confirmarReserva",
-  "lastUpdate" : 1733531740082,
+  "lastUpdate" : 1733615589848,
   "rows" : [
     [
       {
@@ -254,7 +254,7 @@
                         },
                         "value" : {
                           "type" : "variable",
-                          "value" : "nomeCliente.value || formInput.reservaInput.nome"
+                          "value" : "nomeCliente.value"
                         },
                         "required" : {
                           "type" : "constant",
@@ -340,7 +340,7 @@
                         },
                         "value" : {
                           "type" : "variable",
-                          "value" : "emailCliente.value || formInput.reservaInput.email"
+                          "value" : "emailCliente.value"
                         },
                         "required" : {
                           "type" : "constant",
@@ -435,7 +435,7 @@
                         },
                         "allowHTML" : {
                           "type" : "constant",
-                          "value" : false
+                          "value" : true
                         },
                         "displayedKey" : {
                           "type" : "constant",
@@ -508,6 +508,28 @@
                         "required" : {
                           "type" : "constant",
                           "value" : true
+                        },
+                        "allowHTML" : {
+                          "type" : "constant",
+                          "value" : false
+                        },
+                        "minLength" : {
+                          "type" : "constant",
+                          "value" : ""
+                        },
+                        "maxLength" : {
+                          "type" : "constant",
+                          "value" : ""
+                        },
+                        "min" : {
+                          "type" : "constant"
+                        },
+                        "max" : {
+                          "type" : "constant"
+                        },
+                        "step" : {
+                          "type" : "constant",
+                          "value" : 1
                         }
                       },
                       "reference" : "5f90855c-3633-42e0-a8b5-48b58a5b784b",
@@ -546,7 +568,7 @@
                   },
                   "label" : {
                     "type" : "interpolation",
-                    "value" : "Submit"
+                    "value" : "Confirmar Reserva"
                   },
                   "dataToSend" : {
                     "type" : "expression",
@@ -592,6 +614,27 @@
                   "dimension" : {
                     "type" : "constant",
                     "value" : 12
+                  },
+                  "assign" : {
+                    "type" : "constant",
+                    "value" : false
+                  },
+                  "url" : {
+                    "type" : "interpolation"
+                  },
+                  "responseStatusCode" : {
+                    "type" : "variable"
+                  },
+                  "dataFromSuccess" : {
+                    "type" : "variable"
+                  },
+                  "closeOnSuccess" : {
+                    "type" : "constant",
+                    "value" : false
+                  },
+                  "modalId" : {
+                    "type" : "constant",
+                    "value" : ""
                   }
                 },
                 "reference" : "af6208c2-543e-4e03-958b-b81ab8a43aa7",
@@ -644,6 +687,14 @@
                   "dimension" : {
                     "type" : "constant",
                     "value" : 12
+                  },
+                  "labelPosition" : {
+                    "type" : "constant",
+                    "value" : "top"
+                  },
+                  "labelWidth" : {
+                    "type" : "constant",
+                    "value" : 4
                   }
                 },
                 "reference" : "471eb033-f4bf-4738-93a5-4050697f9107",
@@ -735,7 +786,14 @@
       "type" : "expression",
       "value" : [
         "return {",
-        "\treservaInput: $data.formInput.reservaInput",
+        "\treservaInput: {",
+        "\t    nome: $data.nomeCliente.value,",
+        "\t    email: $data.emailCliente.value,",
+        "\t    viagem: {",
+        "\t        persistenceId_string: $data.viagemId.value.toString(),",
+        "\t    },",
+        "\t    nomeConsultor: $data.formInput.reservaInput.nomeConsultor,",
+        "\t}",
         "}"
       ],
       "exposed" : false
