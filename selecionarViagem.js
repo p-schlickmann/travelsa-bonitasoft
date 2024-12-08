@@ -7,7 +7,7 @@ async function main() {
     const {data: trips} = await makeAuthenticatedAPICall('/API/bdm/businessData/travel.sa.model.P01Viagem?q=find&p=0&c=99')
     console.log("🌍 Viagens disponíveis:");
     trips.forEach((trip, idx) => {
-      console.log(`${idx + 1}. ${trip.nome} (Início: ${trip.inicio}, Fim: ${trip.fim})`);
+      console.log(`${idx + 1}. ${trip.nome} (Início: ${trip.inicio}, Fim: ${trip.fim}) - Vagas ${trip.vagas}`);
     });
     console.log('\n')
     const selectedTripIndex = getUserInput('Digite o número da viagem que deseja selecionar: ');

@@ -107,6 +107,9 @@
             <inputs xmi:type="process:ContractInput" xmi:id="_r4paYLWREe-PLI5cwzmhiA" name="pagamentoInput" type="COMPLEX" dataReference="pagamento" createMode="false">
               <inputs xmi:type="process:ContractInput" xmi:id="_r4paYbWREe-PLI5cwzmhiA" name="pago" type="BOOLEAN" createMode="false"/>
             </inputs>
+            <constraints xmi:type="process:ContractConstraint" xmi:id="_xbGkQLW7Ee-xkJ-Mi_6cWQ" expression="return pagamentoInput.pago;" errorMessage="Assinale a checkbox para confirmar o pagamento." name="verify_pagamento">
+              <inputNames>pagamentoInput</inputNames>
+            </constraints>
           </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_Yn0L-60XEe-NFthnTMh3CQ" name="dueDateCalculation()" content="import java.time.Instant&#xA;import java.time.ZoneId&#xA;import java.time.ZonedDateTime&#xA;&#xA;ZonedDateTime now = ZonedDateTime.now(ZoneId.systemDefault())&#xA;&#xA;ZonedDateTime dueDate = now.plusDays(7)&#xA;&#xA;long dueDateInMillis = dueDate.toInstant().toEpochMilli()&#xA;&#xA;return dueDateInMillis" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
@@ -241,6 +244,16 @@
             <operator xmi:type="expression:Operator" xmi:id="_lXXlULT6Ee-PLI5cwzmhiA" type="JAVA_METHOD" expression="setNomeConsultor">
               <inputTypes>java.lang.String</inputTypes>
             </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_P-WgoLW7Ee-xkJ-Mi_6cWQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_P-XuwLW7Ee-xkJ-Mi_6cWQ" name="viagem" content="viagem" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Viagem">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_QggLcLW7Ee-xkJ-Mi_6cWQ" name="viagem" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Viagem"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_P-XuwbW7Ee-xkJ-Mi_6cWQ" name="setViagem()" content="//Retrieve aggregated P01Viagem using its DAO and persistenceId&#xA;def p01ViagemVar = p01ViagemDAO.findByPersistenceId(reservaInput?.viagem?.persistenceId_string?.trim() ? reservaInput.viagem.persistenceId_string.toLong() : null)&#xA;if (!p01ViagemVar) {&#xA;&#x9;if (reservaInput?.viagem?.persistenceId_string?.trim() ? reservaInput.viagem.persistenceId_string.toLong() : null) {&#xA;&#x9;&#x9;throw new IllegalArgumentException(&quot;The aggregated reference of type `P01Viagem` with the persistence id &quot; + reservaInput?.viagem?.persistenceId_string?.trim() ? reservaInput.viagem.persistenceId_string.toLong() : null + &quot; has not been found.&quot;)&#xA;&#x9;}&#xA;&#x9;return null&#xA;}&#xA;return p01ViagemVar" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="travel.sa.model.P01Viagem">
+              <referencedElements xmi:type="expression:Expression" xmi:id="_Szs9ILW7Ee-xkJ-Mi_6cWQ" name="p01ViagemDAO" content="p01ViagemDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="travel.sa.model.P01ViagemDAO" returnTypeFixed="true"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_Szs9IbW7Ee-xkJ-Mi_6cWQ" name="reservaInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_P-XuwrW7Ee-xkJ-Mi_6cWQ" type="ASSIGNMENT"/>
           </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_v0XkY60SEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_v0XkZK0SEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
@@ -464,7 +477,7 @@
         <defaultValue xmi:type="expression:Expression" xmi:id="_JjW8UbV9Ee-PLI5cwzmhiA" content=""/>
       </data>
       <formMapping xmi:type="process:FormMapping" xmi:id="_olu0g60HEe-NFthnTMh3CQ">
-        <targetForm xmi:type="expression:Expression" xmi:id="_zLCxgLWzEe-xkJ-Mi_6cWQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+        <targetForm xmi:type="expression:Expression" xmi:id="_KouN0LW9Ee-5Lb6KbpFVHw" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
       <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_olu0ha0HEe-NFthnTMh3CQ">
         <targetForm xmi:type="expression:Expression" xmi:id="_olu0hq0HEe-NFthnTMh3CQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
@@ -499,7 +512,10 @@
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_PJlEkLTmEe-PLI5cwzmhiA" name="Não" target="_KQVdsLTmEe-PLI5cwzmhiA" source="_cAPyQK0VEe-NFthnTMh3CQ">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_PJlroLTmEe-PLI5cwzmhiA"/>
-        <condition xmi:type="expression:Expression" xmi:id="_PJlrobTmEe-PLI5cwzmhiA" name="checkContratoInvalido()" content="return false;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        <condition xmi:type="expression:Expression" xmi:id="_PJlrobTmEe-PLI5cwzmhiA" name="checkContratoInvalido()" content="import java.time.LocalDate&#xA;import java.time.Period&#xA;&#xA;// 1. Verificar se a idade do cliente é maior ou igual a 18 anos&#xA;if (reserva.dataNascimento) {&#xA;    def idade = Period.between(reserva.dataNascimento, LocalDate.now()).years&#xA;    if (idade &lt; 18) {&#xA;        return true // Reserva inválida&#xA;    }&#xA;} else {&#xA;    return true // Data de nascimento ausente torna a reserva inválida&#xA;}&#xA;&#xA;// 2. Verificar a disponibilidade de vagas na viagem&#xA;if (viagem) {&#xA;    if (viagem.vagas &lt;= 0) {&#xA;        return true // Sem vagas disponíveis&#xA;    }&#xA;} else {&#xA;    return true // Viagem ausente torna a reserva inválida&#xA;}&#xA;&#xA;// 3. Verificar se a reserva foi feita antes da data de início da viagem&#xA;if (viagem?.inicio) {&#xA;    if (LocalDate.now().isAfter(viagem.inicio)) {&#xA;        return true // Data de reserva após início da viagem&#xA;    }&#xA;}&#xA;&#xA;// 4. Verificar validade do passaporte (somente se preenchido)&#xA;if (reserva.passaporte &amp;&amp; reserva.validadePassaporte) {&#xA;    if (viagem?.inicio) {&#xA;        // A validade do passaporte deve ser pelo menos 6 meses após o início da viagem&#xA;        def validadeMinima = viagem.inicio.plusMonths(6)&#xA;        if (reserva.validadePassaporte.isBefore(validadeMinima)) {&#xA;            return true // Passaporte não é válido por pelo menos 6 meses após a viagem&#xA;        }&#xA;    } else if (reserva.validadePassaporte.isBefore(LocalDate.now())) {&#xA;        return true // Passaporte vencido&#xA;    }&#xA;}&#xA;&#xA;// 5. Verificar se o CPF está preenchido e é válido&#xA;if (reserva.cpf) {&#xA;    if (!reserva.cpf.matches(&quot;\\d{11}&quot;)) {&#xA;        return true // CPF inválido&#xA;    }&#xA;} else {&#xA;    return true // CPF ausente torna a reserva inválida&#xA;}&#xA;&#xA;// 6. Verificar se o e-mail está preenchido e segue um formato válido&#xA;if (reserva.email) {&#xA;    if (!reserva.email.matches(&quot;[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}&quot;)) {&#xA;        return true // Email inválido&#xA;    }&#xA;} else {&#xA;    return true // Email ausente torna a reserva inválida&#xA;}&#xA;&#xA;return false&#xA;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true">
+          <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_i3HWYLW7Ee-xkJ-Mi_6cWQ" name="viagem" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Viagem"/>
+          <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_i3JLkLW7Ee-xkJ-Mi_6cWQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+        </condition>
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_Oo6f4LWIEe-PLI5cwzmhiA" target="_P6KsYLWIEe-PLI5cwzmhiA" source="_H40pMLTlEe-PLI5cwzmhiA">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_Oo8VELWIEe-PLI5cwzmhiA"/>
@@ -606,7 +622,7 @@
                 <children xmi:type="notation:DecorationNode" xmi:id="_rdhw4K0bEe-NFthnTMh3CQ" type="5055">
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_rdhw4a0bEe-NFthnTMh3CQ" y="5"/>
                 </children>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rdc4YK0bEe-NFthnTMh3CQ" x="114" y="-17"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rdc4YK0bEe-NFthnTMh3CQ" x="64" y="-17"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Yn1aEa0XEe-NFthnTMh3CQ" x="915" y="116" width="153" height="76"/>
             </children>
@@ -675,7 +691,7 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_zi-OAK0bEe-NFthnTMh3CQ" y="-10"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_zi8_4a0bEe-NFthnTMh3CQ" fontName=".AppleSystemUIFont"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zi8_4q0bEe-NFthnTMh3CQ" points="[-13, -25, 282, -33]$[-13, -70, 282, -78]$[-291, -70, 4, -78]$[-291, 0, 4, -8]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zi8_4q0bEe-NFthnTMh3CQ" points="[-13, -25, 232, -33]$[-13, -70, 232, -78]$[-258, -70, -13, -78]$[-258, 0, -13, -8]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zjDtkK0bEe-NFthnTMh3CQ" id="(1.0,1.0)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zjEUoK0bEe-NFthnTMh3CQ" id="(0.4666666666666667,0.13333333333333333)"/>
     </edges>

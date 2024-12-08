@@ -68,10 +68,10 @@ INSERT INTO P01VIAGEM (
 ## Processo P01 - Solicitação de Viagem
 ### Passos
 1. Rode o script `selecionarViagem.js` para iniciar o processo (`node selecionarViagem.js`).
-2. Entre com o usuário `marina_damico` (senha: `123`) no endereço http://localhost:8080/bonita/apps/userAppBonita/task-list/?_l=en.
+2. Entre com o usuário consultor `marina_damico` (senha: `123`) no endereço http://localhost:8080/bonita/apps/userAppBonita/task-list/?_l=en.
 3. Execute a "Human Task" T10.
 4. Verifique sua caixa de email e localize o ID de Reserva enviado.
 5. Rode o script `preencherContrato.js` (`node preencherContrato.js`).
-6. Entre com o usuário `murilo_cassador` (senha: `123`) no endereço http://localhost:8080/bonita/apps/userAppBonita/task-list/?_l=en.
+6. Entre com o usuário controlador `murilo_cassador` (senha: `123`) no endereço http://localhost:8080/bonita/apps/userAppBonita/task-list/?_l=en.
 7. Caso o contrato seja válido, existirão 2 "Human Tasks" para serem finalizadas em sequência (T50 e depois T55).
 8. Caso o contrato seja inválido, não haverá nenhuma tarefa, já que o processo é finalizado e a reserva cancelada.
