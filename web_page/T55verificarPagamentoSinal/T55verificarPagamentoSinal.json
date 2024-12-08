@@ -2,7 +2,7 @@
   "modelVersion" : "2.3",
   "id" : "T55verificarPagamentoSinal",
   "name" : "T55verificarPagamentoSinal",
-  "lastUpdate" : 1733692568992,
+  "lastUpdate" : 1733697188664,
   "rows" : [
     [
       {
@@ -113,7 +113,16 @@
         "dimension" : {
           "xs" : 12
         },
-        "propertyValues" : { },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          }
+        },
         "reference" : "065f396a-30bc-4840-b2c8-6278478dc13a",
         "hasValidationError" : false,
         "id" : "pbFormContainer",
@@ -151,7 +160,7 @@
                   },
                   "text" : {
                     "type" : "interpolation",
-                    "value" : "Viagem: {{pagamento_reserva}}"
+                    "value" : "Viagem: {{viagem.nome}}"
                   },
                   "level" : {
                     "type" : "constant",
@@ -162,7 +171,7 @@
                     "value" : "left"
                   }
                 },
-                "reference" : "ec01baec-a706-467d-a5ae-cbc6a67fb22c",
+                "reference" : "4eb34f0f-7fae-4444-b9fc-973f77851e98",
                 "hasValidationError" : false,
                 "id" : "pbTitle"
               }
@@ -214,6 +223,161 @@
             ],
             [
               {
+                "type" : "component",
+                "dimension" : {
+                  "md" : 12,
+                  "sm" : 12,
+                  "xs" : 12,
+                  "lg" : 6
+                },
+                "propertyValues" : {
+                  "labelHidden" : {
+                    "type" : "constant",
+                    "value" : false
+                  },
+                  "hidden" : {
+                    "type" : "constant",
+                    "value" : false
+                  },
+                  "cssClasses" : {
+                    "type" : "constant",
+                    "value" : ""
+                  },
+                  "disabled" : {
+                    "type" : "constant",
+                    "value" : false
+                  },
+                  "label" : {
+                    "type" : "interpolation",
+                    "value" : "Pago"
+                  },
+                  "dimension" : {
+                    "type" : "constant",
+                    "value" : 12
+                  },
+                  "value" : {
+                    "type" : "variable",
+                    "value" : "pagamento.pago"
+                  },
+                  "required" : {
+                    "type" : "constant",
+                    "value" : false
+                  },
+                  "allowHTML" : {
+                    "type" : "constant",
+                    "value" : false
+                  }
+                },
+                "reference" : "1f275e14-71b4-486e-a352-556ddd9c5292",
+                "hasValidationError" : false,
+                "id" : "pbCheckbox",
+                "description" : ""
+              }
+            ],
+            [
+              {
+                "type" : "component",
+                "dimension" : {
+                  "md" : 12,
+                  "sm" : 12,
+                  "xs" : 12,
+                  "lg" : 12
+                },
+                "propertyValues" : {
+                  "removeItem" : {
+                    "type" : "variable"
+                  },
+                  "hidden" : {
+                    "type" : "constant",
+                    "value" : false
+                  },
+                  "cssClasses" : {
+                    "type" : "constant",
+                    "value" : ""
+                  },
+                  "buttonStyle" : {
+                    "type" : "constant",
+                    "value" : "primary"
+                  },
+                  "label" : {
+                    "type" : "interpolation",
+                    "value" : "Confirmar"
+                  },
+                  "dataToSend" : {
+                    "type" : "expression",
+                    "value" : "formOutput"
+                  },
+                  "dataFromError" : {
+                    "type" : "variable",
+                    "value" : "formOutput._submitError"
+                  },
+                  "allowHTML" : {
+                    "type" : "constant",
+                    "value" : false
+                  },
+                  "labelHidden" : {
+                    "type" : "constant",
+                    "value" : false
+                  },
+                  "collectionPosition" : {
+                    "type" : "constant"
+                  },
+                  "targetUrlOnSuccess" : {
+                    "type" : "interpolation",
+                    "value" : "/bonita"
+                  },
+                  "action" : {
+                    "type" : "constant",
+                    "value" : "Submit task"
+                  },
+                  "collectionToModify" : {
+                    "type" : "variable"
+                  },
+                  "valueToAdd" : {
+                    "type" : "expression"
+                  },
+                  "disabled" : {
+                    "type" : "expression",
+                    "value" : "$form.$invalid"
+                  },
+                  "alignment" : {
+                    "type" : "constant",
+                    "value" : "center"
+                  },
+                  "dimension" : {
+                    "type" : "constant",
+                    "value" : 12
+                  },
+                  "assign" : {
+                    "type" : "constant",
+                    "value" : false
+                  },
+                  "url" : {
+                    "type" : "interpolation"
+                  },
+                  "responseStatusCode" : {
+                    "type" : "variable"
+                  },
+                  "dataFromSuccess" : {
+                    "type" : "variable"
+                  },
+                  "closeOnSuccess" : {
+                    "type" : "constant",
+                    "value" : false
+                  },
+                  "modalId" : {
+                    "type" : "constant",
+                    "value" : ""
+                  }
+                },
+                "reference" : "ba35f0ae-7a33-4554-a1d1-6ef9899b3734",
+                "hasValidationError" : false,
+                "id" : "pbButton",
+                "description" : ""
+              }
+            ],
+            [
+              {
                 "type" : "container",
                 "dimension" : {
                   "md" : 12,
@@ -250,59 +414,6 @@
                         "sm" : 12,
                         "xs" : 12,
                         "lg" : 6
-                      },
-                      "propertyValues" : {
-                        "labelHidden" : {
-                          "type" : "constant",
-                          "value" : false
-                        },
-                        "hidden" : {
-                          "type" : "constant",
-                          "value" : false
-                        },
-                        "cssClasses" : {
-                          "type" : "constant",
-                          "value" : ""
-                        },
-                        "disabled" : {
-                          "type" : "constant",
-                          "value" : false
-                        },
-                        "label" : {
-                          "type" : "interpolation",
-                          "value" : "Pago"
-                        },
-                        "dimension" : {
-                          "type" : "constant",
-                          "value" : 12
-                        },
-                        "value" : {
-                          "type" : "variable",
-                          "value" : "pagamento.pago"
-                        },
-                        "required" : {
-                          "type" : "constant",
-                          "value" : false
-                        },
-                        "allowHTML" : {
-                          "type" : "constant",
-                          "value" : false
-                        }
-                      },
-                      "reference" : "1f275e14-71b4-486e-a352-556ddd9c5292",
-                      "hasValidationError" : false,
-                      "id" : "pbCheckbox",
-                      "description" : ""
-                    }
-                  ],
-                  [
-                    {
-                      "type" : "component",
-                      "dimension" : {
-                        "md" : 12,
-                        "sm" : 12,
-                        "xs" : 12,
-                        "lg" : 12
                       },
                       "propertyValues" : {
                         "allowHtml" : {
@@ -458,6 +569,18 @@
                         "dimension" : {
                           "type" : "constant",
                           "value" : 12
+                        },
+                        "allowHTML" : {
+                          "type" : "constant",
+                          "value" : false
+                        },
+                        "labelPosition" : {
+                          "type" : "constant",
+                          "value" : "top"
+                        },
+                        "labelWidth" : {
+                          "type" : "constant",
+                          "value" : 4
                         }
                       },
                       "reference" : "268989c4-b0df-415d-bc93-df1dae1456e6",
@@ -834,87 +957,6 @@
                   "lg" : 12
                 },
                 "propertyValues" : {
-                  "removeItem" : {
-                    "type" : "variable"
-                  },
-                  "hidden" : {
-                    "type" : "constant",
-                    "value" : false
-                  },
-                  "cssClasses" : {
-                    "type" : "constant",
-                    "value" : ""
-                  },
-                  "buttonStyle" : {
-                    "type" : "constant",
-                    "value" : "primary"
-                  },
-                  "label" : {
-                    "type" : "interpolation",
-                    "value" : "Submit"
-                  },
-                  "dataToSend" : {
-                    "type" : "expression",
-                    "value" : "formOutput"
-                  },
-                  "dataFromError" : {
-                    "type" : "variable",
-                    "value" : "formOutput._submitError"
-                  },
-                  "allowHTML" : {
-                    "type" : "constant",
-                    "value" : false
-                  },
-                  "labelHidden" : {
-                    "type" : "constant",
-                    "value" : false
-                  },
-                  "collectionPosition" : {
-                    "type" : "constant"
-                  },
-                  "targetUrlOnSuccess" : {
-                    "type" : "interpolation",
-                    "value" : "/bonita"
-                  },
-                  "action" : {
-                    "type" : "constant",
-                    "value" : "Submit task"
-                  },
-                  "collectionToModify" : {
-                    "type" : "variable"
-                  },
-                  "valueToAdd" : {
-                    "type" : "expression"
-                  },
-                  "disabled" : {
-                    "type" : "expression",
-                    "value" : "$form.$invalid"
-                  },
-                  "alignment" : {
-                    "type" : "constant",
-                    "value" : "center"
-                  },
-                  "dimension" : {
-                    "type" : "constant",
-                    "value" : 12
-                  }
-                },
-                "reference" : "ba35f0ae-7a33-4554-a1d1-6ef9899b3734",
-                "hasValidationError" : false,
-                "id" : "pbButton",
-                "description" : ""
-              }
-            ],
-            [
-              {
-                "type" : "component",
-                "dimension" : {
-                  "md" : 12,
-                  "sm" : 12,
-                  "xs" : 12,
-                  "lg" : 12
-                },
-                "propertyValues" : {
                   "allowHTML" : {
                     "type" : "constant",
                     "value" : true
@@ -1043,6 +1085,13 @@
       "type" : "urlparameter",
       "value" : [
         "id"
+      ],
+      "exposed" : false
+    },
+    "viagem" : {
+      "type" : "url",
+      "value" : [
+        "{{pagamento_reserva|lazyRef:'viagem'}}"
       ],
       "exposed" : false
     }

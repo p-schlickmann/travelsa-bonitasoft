@@ -108,7 +108,7 @@
               <inputs xmi:type="process:ContractInput" xmi:id="_r4paYbWREe-PLI5cwzmhiA" name="pago" type="BOOLEAN" createMode="false"/>
             </inputs>
           </contract>
-          <expectedDuration xmi:type="expression:Expression" xmi:id="_Yn0L-60XEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
+          <expectedDuration xmi:type="expression:Expression" xmi:id="_Yn0L-60XEe-NFthnTMh3CQ" name="dueDateCalculation()" content="import java.time.Instant&#xA;import java.time.ZoneId&#xA;import java.time.ZonedDateTime&#xA;&#xA;ZonedDateTime now = ZonedDateTime.now(ZoneId.systemDefault())&#xA;&#xA;ZonedDateTime dueDate = now.plusDays(7)&#xA;&#xA;long dueDateInMillis = dueDate.toInstant().toEpochMilli()&#xA;&#xA;return dueDateInMillis" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:EndEvent" xmi:id="_m9gCoK0YEe-NFthnTMh3CQ" name="Reserva confirmada" incoming="_o9SBsK0bEe-NFthnTMh3CQ">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_m9jF8a0YEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
@@ -120,7 +120,7 @@
         <elements xmi:type="process:Task" xmi:id="_0RBV4K0SEe-NFthnTMh3CQ" documentation="Entrar em contato com o cliente para sanar dúvidas e verificar se deseja continuar com a reserva. Caso sim, criar a reserva no sistema, que vai enviar o contrato de aquisição automaticamente." name="T10 - Confirmar prosseguimento da reserva" outgoing="_5BL1EK0ZEe-NFthnTMh3CQ" incoming="_v0jxoK0SEe-NFthnTMh3CQ" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_v0XkYa0SEe-NFthnTMh3CQ" name="Confirmar prosseguimento da reserva" content="Confirmar prosseguimento da reserva" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_v0XkYK0SEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
-          <stepSummary xmi:type="expression:Expression" xmi:id="_v0XkYq0SEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_v0XkYq0SEe-NFthnTMh3CQ" name="Reserva criada com sucesso! Contrato de aquisição enviado para o cliente." content="Reserva criada com sucesso! Contrato de aquisição enviado para o cliente." returnTypeFixed="true"/>
           <connectors xmi:type="process:Connector" xmi:id="_HG-ooLT9Ee-PLI5cwzmhiA" name="contratoMailer" definitionId="email" event="ON_FINISH" definitionVersion="1.2.0">
             <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_HHC6ELT9Ee-PLI5cwzmhiA" definitionId="email" version="1.2.0" modelVersion="7.12.0-004">
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_HHEIMLT9Ee-PLI5cwzmhiA" key="smtpHost">
@@ -278,7 +278,7 @@
               <inputNames>reservaInput</inputNames>
             </constraints>
           </contract>
-          <expectedDuration xmi:type="expression:Expression" xmi:id="_0RHcga0SEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
+          <expectedDuration xmi:type="expression:Expression" xmi:id="_0RHcga0SEe-NFthnTMh3CQ" name="dueDateCalculation()" content="import java.time.Instant&#xA;import java.time.ZoneId&#xA;import java.time.ZonedDateTime&#xA;&#xA;ZonedDateTime now = ZonedDateTime.now(ZoneId.systemDefault())&#xA;&#xA;ZonedDateTime dueDate = now.plusDays(7)&#xA;&#xA;return dueDate.toInstant().toEpochMilli()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:XORGateway" xmi:id="_cAPyQK0VEe-NFthnTMh3CQ" name="Contrato válido?" outgoing="_o6RYsK0VEe-NFthnTMh3CQ _PJlEkLTmEe-PLI5cwzmhiA" incoming="_sz2NcLWIEe-PLI5cwzmhiA">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_bll2kK0VEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
@@ -464,7 +464,7 @@
         <defaultValue xmi:type="expression:Expression" xmi:id="_JjW8UbV9Ee-PLI5cwzmhiA" content=""/>
       </data>
       <formMapping xmi:type="process:FormMapping" xmi:id="_olu0g60HEe-NFthnTMh3CQ">
-        <targetForm xmi:type="expression:Expression" xmi:id="_13uB4LWtEe-PLI5cwzmhiA" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+        <targetForm xmi:type="expression:Expression" xmi:id="_zLCxgLWzEe-xkJ-Mi_6cWQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
       <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_olu0ha0HEe-NFthnTMh3CQ">
         <targetForm xmi:type="expression:Expression" xmi:id="_olu0hq0HEe-NFthnTMh3CQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>

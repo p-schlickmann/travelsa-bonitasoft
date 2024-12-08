@@ -7,7 +7,6 @@ async function main() {
 
     const idReserva = getUserInput('📧 ID da reserva: ');
     const {data: reservas} = await makeAuthenticatedAPICall('/API/bdm/businessData/travel.sa.model.P01Reserva?q=find&p=0&c=99')
-    console.log(reservas)
     const reserva = reservas.find(reserva => reserva.persistenceId_string === idReserva)
     if (!reserva || reserva.dataPreenchimento) {
       console.error("❌  ID da reserva inválido");
