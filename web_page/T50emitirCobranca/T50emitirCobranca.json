@@ -2,7 +2,7 @@
   "modelVersion" : "2.3",
   "id" : "T50emitirCobranca",
   "name" : "T50emitirCobranca",
-  "lastUpdate" : 1733681750467,
+  "lastUpdate" : 1733692616742,
   "rows" : [
     [
       {
@@ -183,7 +183,7 @@
                     "value" : "left"
                   }
                 },
-                "reference" : "bbb601e2-d72f-4fb4-a8b6-4e6951b23fba",
+                "reference" : "f8ffeb19-d773-4e59-bfd5-976d8a15b373",
                 "hasValidationError" : false,
                 "id" : "pbTitle"
               }
@@ -212,7 +212,7 @@
                   },
                   "text" : {
                     "type" : "interpolation",
-                    "value" : "Cliente: {{reserva.nome}} - {{reserva.email}}"
+                    "value" : "Cliente: {{reserva.nome}} - {{reserva.email}} - CPF: {{reserva.cpf}}"
                   },
                   "level" : {
                     "type" : "constant",
@@ -223,7 +223,7 @@
                     "value" : "left"
                   }
                 },
-                "reference" : "01cedcde-0141-4b25-989c-dd66ad535cea",
+                "reference" : "ed516194-f4d8-42a4-95be-6c56cf1af011",
                 "hasValidationError" : false,
                 "id" : "pbTitle"
               }

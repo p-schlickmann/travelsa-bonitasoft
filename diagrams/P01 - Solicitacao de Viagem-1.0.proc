@@ -33,8 +33,8 @@
             <leftOperand xmi:type="expression:Expression" xmi:id="_cVPfTbWDEe-PLI5cwzmhiA" name="pagamento" content="pagamento" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Pagamento">
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_cVPfTrWDEe-PLI5cwzmhiA" name="pagamento" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Pagamento"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_cVPfT7WDEe-PLI5cwzmhiA" name="pagamentoInput.valor" content="pagamentoInput?.valor" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Double">
-              <referencedElements xmi:type="process:ContractInput" xmi:id="_cVPfULWDEe-PLI5cwzmhiA" name="pagamentoInput" type="COMPLEX"/>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_cVPfT7WDEe-PLI5cwzmhiA" name="pagamentoInput.valor" content="return Double.valueOf(pagamentoInput?.valor);" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Double">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_V2960LWwEe-PLI5cwzmhiA" name="pagamentoInput" type="COMPLEX"/>
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_cVPfUbWDEe-PLI5cwzmhiA" type="JAVA_METHOD" expression="setValor">
               <inputTypes>java.lang.Double</inputTypes>
@@ -464,7 +464,7 @@
         <defaultValue xmi:type="expression:Expression" xmi:id="_JjW8UbV9Ee-PLI5cwzmhiA" content=""/>
       </data>
       <formMapping xmi:type="process:FormMapping" xmi:id="_olu0g60HEe-NFthnTMh3CQ">
-        <targetForm xmi:type="expression:Expression" xmi:id="_jSeEMbWQEe-PLI5cwzmhiA" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+        <targetForm xmi:type="expression:Expression" xmi:id="_13uB4LWtEe-PLI5cwzmhiA" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
       <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_olu0ha0HEe-NFthnTMh3CQ">
         <targetForm xmi:type="expression:Expression" xmi:id="_olu0hq0HEe-NFthnTMh3CQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>

@@ -2,7 +2,7 @@
   "modelVersion" : "2.3",
   "id" : "T55verificarPagamentoSinal",
   "name" : "T55verificarPagamentoSinal",
-  "lastUpdate" : 1733682570651,
+  "lastUpdate" : 1733692568992,
   "rows" : [
     [
       {
@@ -127,6 +127,46 @@
           "hasValidationError" : false,
           "id" : "pbContainer",
           "rows" : [
+            [
+              {
+                "type" : "component",
+                "dimension" : {
+                  "xs" : 12,
+                  "sm" : 12,
+                  "md" : 12,
+                  "lg" : 6
+                },
+                "propertyValues" : {
+                  "cssClasses" : {
+                    "type" : "constant",
+                    "value" : ""
+                  },
+                  "hidden" : {
+                    "type" : "constant",
+                    "value" : false
+                  },
+                  "allowHTML" : {
+                    "type" : "constant",
+                    "value" : false
+                  },
+                  "text" : {
+                    "type" : "interpolation",
+                    "value" : "Viagem: {{pagamento_reserva}}"
+                  },
+                  "level" : {
+                    "type" : "constant",
+                    "value" : "Level 4"
+                  },
+                  "alignment" : {
+                    "type" : "constant",
+                    "value" : "left"
+                  }
+                },
+                "reference" : "ec01baec-a706-467d-a5ae-cbc6a67fb22c",
+                "hasValidationError" : false,
+                "id" : "pbTitle"
+              }
+            ],
             [
               {
                 "type" : "component",
