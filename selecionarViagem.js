@@ -5,11 +5,12 @@ async function main() {
   try {
     await loginToBonita();
     const {data: trips} = await makeAuthenticatedAPICall('/API/bdm/businessData/travel.sa.model.P01Viagem?q=find&p=0&c=99')
-    console.log("\n🌍 Viagens disponíveis:");
+    console.log("🌍 Viagens disponíveis:");
     trips.forEach((trip, idx) => {
       console.log(`${idx + 1}. ${trip.nome} (Início: ${trip.inicio}, Fim: ${trip.fim})`);
     });
-    const selectedTripIndex = await getUserInput('\nDigite o número da viagem que deseja selecionar: ');
+    console.log('\n')
+    const selectedTripIndex = getUserInput('Digite o número da viagem que deseja selecionar: ');
     const selectedTrip = trips[parseInt(selectedTripIndex, 10) - 1];
 
     if (!selectedTrip) {
@@ -18,8 +19,8 @@ async function main() {
     }
     console.log(`✅  Você selecionou a viagem: ${selectedTrip.nome}`);
 
-    const email = await getUserInput('\n📧 Por favor insira seu email para mais informações sobre a viagem: ');
-    const name = await getUserInput('🙂 E seu nome: ');
+    const email = getUserInput('📧 Por favor insira seu email para mais informações sobre a viagem: ');
+    const name = getUserInput('🙂 E seu nome: ');
 
     const startProcess = await makeAuthenticatedAPICall(
       '/API/bpm/message',

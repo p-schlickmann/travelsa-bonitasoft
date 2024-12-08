@@ -5,13 +5,23 @@ async function main() {
   try {
     await loginToBonita();
 
-    const idReserva = await getUserInput('📧 ID da reserva: ');
+    const idReserva = getUserInput('📧 ID da reserva: ');
     const {data: reservas} = await makeAuthenticatedAPICall('/API/bdm/businessData/travel.sa.model.P01Reserva?q=find&p=0&c=99')
-    const reservaExists = reservas.find(reserva => reserva.persistenceId_string === idReserva)
-    if (!reservaExists) {
+    console.log(reservas)
+    const reserva = reservas.find(reserva => reserva.persistenceId_string === idReserva)
+    if (!reserva || reserva.dataPreenchimento) {
       console.error("❌  ID da reserva inválido");
       return;
     }
+
+    const nacionalidade = getUserInput('Pais de nacionalidade [Brasil]: ');
+    const estadoCivil = getUserInput('Estado civil [Solteiro, Casado, etc]: ')
+    const profissao = getUserInput('Profissao: ')
+    const dataNascimento = getUserInput('Data de nascimento (YYYY-MM-DD) [Ex: 2001-09-21]: ')
+    const rg = getUserInput('RG: ')
+    const cpf = getUserInput('CPF: ')
+    const passaporte = getUserInput('Numero do passaporte: ')
+    const validadePassaporte = getUserInput('Data de validade do passaporte (YYYY-MM-DD) [Ex: 2033-12-20]: ')
 
     const sendContract = await makeAuthenticatedAPICall(
       '/API/bpm/message',
@@ -20,10 +30,38 @@ async function main() {
         "messageName": "receiveContract",
         "targetProcess": "Solicitacao de Viagem",
         "messageContent": {
-          "contratoValido": {
-            "value": true,
-            "type": "java.lang.Boolean"
+          "nacionalidade": {
+            "value": nacionalidade,
+            "type": "java.lang.String"
           },
+          "estadoCivil": {
+            "value": estadoCivil,
+            "type": "java.lang.String"
+          },
+          "profissao": {
+            "value": profissao,
+            "type": "java.lang.String"
+          },
+          "dataNascimento": {
+            "value": dataNascimento,
+            "type": "java.lang.String"
+          },
+          "rg": {
+            "value": rg,
+            "type": "java.lang.String"
+          },
+          "cpf": {
+            "value": cpf,
+            "type": "java.lang.String"
+          },
+          "passaporte": {
+            "value": passaporte,
+            "type": "java.lang.String"
+          },
+          "validadePassaporte": {
+            "value": validadePassaporte,
+            "type": "java.lang.String"
+          }
         },
         "correlations": {
           "reservaId": {

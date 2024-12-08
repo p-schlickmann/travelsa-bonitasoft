@@ -8,7 +8,7 @@
                     <description>Forma de pagamento (Cartão de Crédito, Boleto Bancário)</description>
                 </field>
                 <field type="INTEGER" length="255" name="parcelas" nullable="false" collection="false"/>
-                <field type="BOOLEAN" length="255" name="pago" nullable="false" collection="false"/>
+                <field type="BOOLEAN" length="255" name="pago" nullable="true" collection="false"/>
                 <field type="DOUBLE" length="255" name="valor" nullable="false" collection="false"/>
                 <relationField type="AGGREGATION" reference="travel.sa.model.P01Reserva" fetchType="LAZY" name="reserva" nullable="false" collection="false"/>
             </fields>
@@ -36,8 +36,6 @@
                 <field type="LOCALDATE" length="255" name="dataPreenchimento" nullable="true" collection="false"/>
                 <relationField type="AGGREGATION" reference="travel.sa.model.P01Viagem" fetchType="LAZY" name="viagem" nullable="false" collection="false"/>
                 <field type="STRING" length="255" name="nomeConsultor" nullable="false" collection="false"/>
-                <field type="BOOLEAN" length="255" name="contratoValido" nullable="true" collection="false"/>
-                <field type="BOOLEAN" length="255" name="pagamentoConfirmado" nullable="true" collection="false"/>
             </fields>
             <uniqueConstraints/>
             <queries/>

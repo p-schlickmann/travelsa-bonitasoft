@@ -1,5 +1,5 @@
 const axios = require('axios');
-const readline = require('readline');
+const prompt = require('prompt-sync')({ sigint: true });
 
 // Configuration
 const bonitaBaseURL = 'http://localhost:8080/bonita';
@@ -42,17 +42,7 @@ async function makeAuthenticatedAPICall(endpoint, method = 'GET', data = {}) {
 }
 
 function getUserInput(question) {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-
-  return new Promise((resolve) => {
-    rl.question(question, (answer) => {
-      rl.close();
-      resolve(answer);
-    });
-  });
+  return prompt(question);
 }
 
 module.exports = {
