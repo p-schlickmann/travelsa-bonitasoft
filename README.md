@@ -79,7 +79,7 @@ INSERT INTO P01VIAGEM (
 ) VALUES (
     4,
     1,
-    'Viagem com poucas vagas,
+    'Viagem com poucas vagas',
     '2025-07-13',
     '2025-07-20',
     2,
