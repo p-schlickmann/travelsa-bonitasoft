@@ -92,6 +92,17 @@
               <inputTypes>java.lang.Boolean</inputTypes>
             </operator>
           </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_dMOmMLZ2Ee-5Lb6KbpFVHw">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_dMPNQLZ2Ee-5Lb6KbpFVHw" name="viagem" content="viagem" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Viagem">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_unltALZ6Ee-5Lb6KbpFVHw" name="viagem" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Viagem"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_dMPNQbZ2Ee-5Lb6KbpFVHw" name="preencherVaga()" content="if (viagem?.vagas > 0) {&#xA;&#x9;return viagem.vagas - 1&#xA;} else {&#xA;&#x9;return viagem?.vagas || 0;&#xA;}" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Integer">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_bafJgLZ7Ee-5Lb6KbpFVHw" name="viagem" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Viagem"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_dMPNQrZ2Ee-5Lb6KbpFVHw" type="JAVA_METHOD" expression="setVagas">
+              <inputTypes>java.lang.Integer</inputTypes>
+            </operator>
+          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_XRmm860XEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_XRmm9K0XEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_XRmm9a0XEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
@@ -111,7 +122,7 @@
               <inputNames>pagamentoInput</inputNames>
             </constraints>
           </contract>
-          <expectedDuration xmi:type="expression:Expression" xmi:id="_Yn0L-60XEe-NFthnTMh3CQ" name="dueDateCalculation()" content="import java.time.Instant&#xA;import java.time.ZoneId&#xA;import java.time.ZonedDateTime&#xA;&#xA;ZonedDateTime now = ZonedDateTime.now(ZoneId.systemDefault())&#xA;&#xA;ZonedDateTime dueDate = now.plusDays(7)&#xA;&#xA;long dueDateInMillis = dueDate.toInstant().toEpochMilli()&#xA;&#xA;return dueDateInMillis" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long" returnTypeFixed="true"/>
+          <expectedDuration xmi:type="expression:Expression" xmi:id="_Yn0L-60XEe-NFthnTMh3CQ" name="dueDateCalculation()" content="return 7 * 24 * 60 * 60 * 1000;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:EndEvent" xmi:id="_m9gCoK0YEe-NFthnTMh3CQ" name="Reserva confirmada" incoming="_o9SBsK0bEe-NFthnTMh3CQ">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_m9jF8a0YEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
@@ -245,15 +256,15 @@
               <inputTypes>java.lang.String</inputTypes>
             </operator>
           </operations>
-          <operations xmi:type="expression:Operation" xmi:id="_P-WgoLW7Ee-xkJ-Mi_6cWQ">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_P-XuwLW7Ee-xkJ-Mi_6cWQ" name="viagem" content="viagem" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Viagem">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_QggLcLW7Ee-xkJ-Mi_6cWQ" name="viagem" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Viagem"/>
+          <operations xmi:type="expression:Operation" xmi:id="_p_PbILZ1Ee-5Lb6KbpFVHw">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_p_R3YLZ1Ee-5Lb6KbpFVHw" name="viagem" content="viagem" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Viagem">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_qvnvMLZ1Ee-5Lb6KbpFVHw" name="viagem" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Viagem"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_P-XuwbW7Ee-xkJ-Mi_6cWQ" name="setViagem()" content="//Retrieve aggregated P01Viagem using its DAO and persistenceId&#xA;def p01ViagemVar = p01ViagemDAO.findByPersistenceId(reservaInput?.viagem?.persistenceId_string?.trim() ? reservaInput.viagem.persistenceId_string.toLong() : null)&#xA;if (!p01ViagemVar) {&#xA;&#x9;if (reservaInput?.viagem?.persistenceId_string?.trim() ? reservaInput.viagem.persistenceId_string.toLong() : null) {&#xA;&#x9;&#x9;throw new IllegalArgumentException(&quot;The aggregated reference of type `P01Viagem` with the persistence id &quot; + reservaInput?.viagem?.persistenceId_string?.trim() ? reservaInput.viagem.persistenceId_string.toLong() : null + &quot; has not been found.&quot;)&#xA;&#x9;}&#xA;&#x9;return null&#xA;}&#xA;return p01ViagemVar" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="travel.sa.model.P01Viagem">
-              <referencedElements xmi:type="expression:Expression" xmi:id="_Szs9ILW7Ee-xkJ-Mi_6cWQ" name="p01ViagemDAO" content="p01ViagemDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="travel.sa.model.P01ViagemDAO" returnTypeFixed="true"/>
-              <referencedElements xmi:type="process:ContractInput" xmi:id="_Szs9IbW7Ee-xkJ-Mi_6cWQ" name="reservaInput" type="COMPLEX"/>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_p_SecLZ1Ee-5Lb6KbpFVHw" name="getViagem()" content="//Retrieve aggregated P01Viagem using its DAO and persistenceId&#xA;def p01ViagemVar = p01ViagemDAO.findByPersistenceId(reservaInput?.viagem?.persistenceId_string?.trim() ? reservaInput.viagem.persistenceId_string.toLong() : null)&#xA;if (!p01ViagemVar) {&#xA;&#x9;if (reservaInput?.viagem?.persistenceId_string?.trim() ? reservaInput.viagem.persistenceId_string.toLong() : null) {&#xA;&#x9;&#x9;throw new IllegalArgumentException(&quot;The aggregated reference of type `P01Viagem` with the persistence id &quot; + reservaInput?.viagem?.persistenceId_string?.trim() ? reservaInput.viagem.persistenceId_string.toLong() : null + &quot; has not been found.&quot;)&#xA;&#x9;}&#xA;&#x9;return null&#xA;}&#xA;return p01ViagemVar" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="travel.sa.model.P01Viagem">
+              <referencedElements xmi:type="expression:Expression" xmi:id="_35RGALZ1Ee-5Lb6KbpFVHw" name="p01ViagemDAO" content="p01ViagemDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="travel.sa.model.P01ViagemDAO" returnTypeFixed="true"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_35VXcLZ1Ee-5Lb6KbpFVHw" name="reservaInput" type="COMPLEX"/>
             </rightOperand>
-            <operator xmi:type="expression:Operator" xmi:id="_P-XuwrW7Ee-xkJ-Mi_6cWQ" type="ASSIGNMENT"/>
+            <operator xmi:type="expression:Operator" xmi:id="_p_TFgLZ1Ee-5Lb6KbpFVHw" type="ASSIGNMENT"/>
           </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_v0XkY60SEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_v0XkZK0SEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
@@ -291,7 +302,7 @@
               <inputNames>reservaInput</inputNames>
             </constraints>
           </contract>
-          <expectedDuration xmi:type="expression:Expression" xmi:id="_0RHcga0SEe-NFthnTMh3CQ" name="dueDateCalculation()" content="import java.time.Instant&#xA;import java.time.ZoneId&#xA;import java.time.ZonedDateTime&#xA;&#xA;ZonedDateTime now = ZonedDateTime.now(ZoneId.systemDefault())&#xA;&#xA;ZonedDateTime dueDate = now.plusDays(7)&#xA;&#xA;return dueDate.toInstant().toEpochMilli()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long" returnTypeFixed="true"/>
+          <expectedDuration xmi:type="expression:Expression" xmi:id="_0RHcga0SEe-NFthnTMh3CQ" name="dueDateCalculation()" content="return 60 * 24 * 60 * 60 * 1000;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:XORGateway" xmi:id="_cAPyQK0VEe-NFthnTMh3CQ" name="Contrato válido?" outgoing="_o6RYsK0VEe-NFthnTMh3CQ _PJlEkLTmEe-PLI5cwzmhiA" incoming="_sz2NcLWIEe-PLI5cwzmhiA">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_bll2kK0VEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
@@ -477,7 +488,7 @@
         <defaultValue xmi:type="expression:Expression" xmi:id="_JjW8UbV9Ee-PLI5cwzmhiA" content=""/>
       </data>
       <formMapping xmi:type="process:FormMapping" xmi:id="_olu0g60HEe-NFthnTMh3CQ">
-        <targetForm xmi:type="expression:Expression" xmi:id="_KouN0LW9Ee-5Lb6KbpFVHw" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+        <targetForm xmi:type="expression:Expression" xmi:id="_GvL_ILZ7Ee-5Lb6KbpFVHw" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
       <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_olu0ha0HEe-NFthnTMh3CQ">
         <targetForm xmi:type="expression:Expression" xmi:id="_olu0hq0HEe-NFthnTMh3CQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
