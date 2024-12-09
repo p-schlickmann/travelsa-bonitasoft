@@ -16,12 +16,14 @@ Alunos:
 ```sql
 INSERT INTO P01VIAGEM (
     PERSISTENCEID,
+    PERSISTENCEVERSION,
     NOME,
     INICIO,
     FIM,
     VAGAS,
     VALOR,
 ) VALUES (
+    1,
     1,
     'Guga Arruda Surf',
     '2024-12-05',
@@ -32,6 +34,7 @@ INSERT INTO P01VIAGEM (
 
 INSERT INTO P01VIAGEM (
     PERSISTENCEID,
+    PERSISTENCEVERSION,
     NOME,
     INICIO,
     FIM,
@@ -39,6 +42,7 @@ INSERT INTO P01VIAGEM (
     VALOR,
 ) VALUES (
     2,
+    1,
     'México com Marcelo Trekinho',
     '2025-03-02',
     '2025-03-09',
@@ -48,6 +52,7 @@ INSERT INTO P01VIAGEM (
 
 INSERT INTO P01VIAGEM (
     PERSISTENCEID,
+    PERSISTENCEVERSION,
     NOME,
     INICIO,
     FIM,
@@ -55,11 +60,30 @@ INSERT INTO P01VIAGEM (
     VALOR,
 ) VALUES (
     3,
+    1,
     'Yoga no Panama',
     '2025-05-10',
     '2025-05-17',
     8,
     12000.00,
+);
+
+INSERT INTO P01VIAGEM (
+    PERSISTENCEID,
+    PERSISTENCEVERSION,
+    NOME,
+    INICIO,
+    FIM,
+    VAGAS,
+    VALOR,
+) VALUES (
+    4,
+    1,
+    'Viagem com poucas vagas,
+    '2025-07-13',
+    '2025-07-20',
+    2,
+    20000.00,
 );
 ```
 10. IMPORTANTE: desconecte-se do cliente h2 após finalizar. Clique no botão vermelho do canto superior esquerdo.

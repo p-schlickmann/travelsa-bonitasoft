@@ -109,7 +109,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_XRmm960XEe-NFthnTMh3CQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_XRmm9q0XEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <BoundaryIntermediateEvents xmi:type="process:BoundaryTimerEvent" xmi:id="_rc1NUK0bEe-NFthnTMh3CQ" name="7 dias" outgoing="_zi1EEK0bEe-NFthnTMh3CQ">
-            <condition xmi:type="expression:Expression" xmi:id="_u1oVIK0bEe-NFthnTMh3CQ" name="7 Days 00:00:00" content="604800000L" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long"/>
+            <condition xmi:type="expression:Expression" xmi:id="_u1oVIK0bEe-NFthnTMh3CQ" name="00:00:30" content="30000L" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long"/>
           </BoundaryIntermediateEvents>
           <formMapping xmi:type="process:FormMapping" xmi:id="_Yn0L-a0XEe-NFthnTMh3CQ">
             <targetForm xmi:type="expression:Expression" xmi:id="_xSiQMLWREe-PLI5cwzmhiA" name="T55verificarPagamentoSinal" content="befbcb5d-4862-491d-a321-78a0b153a344" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
@@ -298,7 +298,7 @@
             <constraints xmi:type="process:ContractConstraint" xmi:id="_vRsl07KcEe-9w5FeHqYudQ" expression="!reservaInput?.viagem || reservaInput?.viagem?.persistenceId_string" errorMessage="P01Viagem must reference an existing instance with a persistenceId for P01Reserva" name="aggregation_reservaInput_viagem">
               <inputNames>reservaInput</inputNames>
             </constraints>
-            <constraints xmi:type="process:ContractConstraint" xmi:id="_vRsl1LKcEe-9w5FeHqYudQ" expression="reservaInput?.nomeConsultor != null" errorMessage="nomeConsultor is mandatory for P01Reserva" name="mandatory_reservaInput_nomeConsultor">
+            <constraints xmi:type="process:ContractConstraint" xmi:id="_vRsl1LKcEe-9w5FeHqYudQ" expression="reservaInput?.nomeConsultor != null &amp;&amp; reservaInput.nomeConsultor != &quot;&quot;;" errorMessage="Por favor insira o seu nome de consultor." name="mandatory_reservaInput_nomeConsultor">
               <inputNames>reservaInput</inputNames>
             </constraints>
           </contract>
@@ -488,7 +488,7 @@
         <defaultValue xmi:type="expression:Expression" xmi:id="_JjW8UbV9Ee-PLI5cwzmhiA" content=""/>
       </data>
       <formMapping xmi:type="process:FormMapping" xmi:id="_olu0g60HEe-NFthnTMh3CQ">
-        <targetForm xmi:type="expression:Expression" xmi:id="_GvL_ILZ7Ee-5Lb6KbpFVHw" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+        <targetForm xmi:type="expression:Expression" xmi:id="_geHMsLaBEe-JbLtyRsfRVQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
       <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_olu0ha0HEe-NFthnTMh3CQ">
         <targetForm xmi:type="expression:Expression" xmi:id="_olu0hq0HEe-NFthnTMh3CQ" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>

@@ -2,7 +2,7 @@
   "modelVersion" : "2.3",
   "id" : "T10confirmarReserva",
   "name" : "T10confirmarReserva",
-  "lastUpdate" : 1733615589848,
+  "lastUpdate" : 1733784965059,
   "rows" : [
     [
       {
@@ -568,7 +568,7 @@
                   },
                   "label" : {
                     "type" : "interpolation",
-                    "value" : "Confirmar Reserva"
+                    "value" : "{{ submitMessage }}"
                   },
                   "dataToSend" : {
                     "type" : "expression",
@@ -605,7 +605,7 @@
                   },
                   "disabled" : {
                     "type" : "expression",
-                    "value" : "$form.$invalid"
+                    "value" : "isSubmitDisabled"
                   },
                   "alignment" : {
                     "type" : "constant",
@@ -830,6 +830,27 @@
       "type" : "url",
       "value" : [
         "../API/bpm/caseVariable/{{task.caseId}}/viagemId"
+      ],
+      "exposed" : false
+    },
+    "viagem" : {
+      "type" : "url",
+      "value" : [
+        "../API/bdm/businessData/travel.sa.model.P01Viagem/{{viagemId.value}}"
+      ],
+      "exposed" : false
+    },
+    "submitMessage" : {
+      "type" : "expression",
+      "value" : [
+        "return $data.viagem.vagas > 0 ? \"Confirmar reserva\" : \"Vagas esgotadas!\""
+      ],
+      "exposed" : false
+    },
+    "isSubmitDisabled" : {
+      "type" : "expression",
+      "value" : [
+        "return $form.$invalid || $data.viagem.vagas == 0;"
       ],
       "exposed" : false
     }
