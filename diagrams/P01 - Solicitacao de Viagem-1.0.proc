@@ -81,6 +81,85 @@
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_XRmm8a0XEe-NFthnTMh3CQ" name="Verificar pagamento do sinal" content="Verificar pagamento do sinal" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_XRmm8K0XEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_XRmm8q0XEe-NFthnTMh3CQ" name="" content="" returnTypeFixed="true"/>
+          <connectors xmi:type="process:Connector" xmi:id="_6RotwLaEEe-Yw8oZULvXWQ" name="emailVagaReservada" definitionId="email" event="ON_FINISH" definitionVersion="1.2.0">
+            <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_6Rqi8LaEEe-Yw8oZULvXWQ" definitionId="email" version="1.2.0" modelVersion="7.12.0-004">
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKALaEEe-Yw8oZULvXWQ" key="smtpHost">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKAbaEEe-Yw8oZULvXWQ" name="sandbox.smtp.mailtrap.io" content="sandbox.smtp.mailtrap.io" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKAraEEe-Yw8oZULvXWQ" key="smtpPort">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKA7aEEe-Yw8oZULvXWQ" name="465" content="465" returnType="java.lang.Integer" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKBLaEEe-Yw8oZULvXWQ" key="sslSupport">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKBbaEEe-Yw8oZULvXWQ" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKBraEEe-Yw8oZULvXWQ" key="starttlsSupport">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKB7aEEe-Yw8oZULvXWQ" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKCLaEEe-Yw8oZULvXWQ" key="trustCertificate">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKCbaEEe-Yw8oZULvXWQ" name="false" content="false" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKCraEEe-Yw8oZULvXWQ" key="userName">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKC7aEEe-Yw8oZULvXWQ" name="b22670014392ec" content="b22670014392ec" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKDLaEEe-Yw8oZULvXWQ" key="password">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKDbaEEe-Yw8oZULvXWQ" name="749118830418fa" content="749118830418fa" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKDraEEe-Yw8oZULvXWQ" key="from">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKD7aEEe-Yw8oZULvXWQ" name="controlador@travelsa.com" content="controlador@travelsa.com" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKELaEEe-Yw8oZULvXWQ" key="returnPath">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKEbaEEe-Yw8oZULvXWQ" content="" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKEraEEe-Yw8oZULvXWQ" key="to">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKE7aEEe-Yw8oZULvXWQ" name="to()" content="return reserva.email;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+                  <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_6RrKFLaEEe-Yw8oZULvXWQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+                </expression>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKFbaEEe-Yw8oZULvXWQ" key="bcc">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKFraEEe-Yw8oZULvXWQ" content="" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKF7aEEe-Yw8oZULvXWQ" key="cc">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKGLaEEe-Yw8oZULvXWQ" content="" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKGbaEEe-Yw8oZULvXWQ" key="subject">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKGraEEe-Yw8oZULvXWQ" name="subject()" content="return &quot;${reserva.viagem.nome}: Vaga reservada!&quot;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+                  <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_6RrKG7aEEe-Yw8oZULvXWQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+                </expression>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKHLaEEe-Yw8oZULvXWQ" key="html">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKHbaEEe-Yw8oZULvXWQ" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKHraEEe-Yw8oZULvXWQ" key="message">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKH7aEEe-Yw8oZULvXWQ" name="&lt;pattern-expression>" content="&lt;p>Boas not&amp;iacute;cias ${reserva.nome}!&lt;/p>&#xA;&#xA;&lt;p>O sua vaga para a viagem &lt;strong>${reserva.viagem.nome}&lt;/strong>&amp;nbsp;est&amp;aacute; reservada!&lt;/p>&#xA;&#xA;&lt;p>N&amp;atilde;o se preocupe, entraremos em contato antes de emitir as passagens a&amp;eacute;reas. Precisamos esperar o preenchimento de 70% do grupo para prosseguir.&lt;/p>&#xA;&#xA;&lt;p>Qualquer coisa &amp;eacute; s&amp;oacute; entrarm em contato conosco!&lt;/p>&#xA;" type="TYPE_PATTERN" returnTypeFixed="true">
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_6RrKILaEEe-Yw8oZULvXWQ" name="reserva.nome" content="reserva.nome" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_6RrKIbaEEe-Yw8oZULvXWQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_6RrKIraEEe-Yw8oZULvXWQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+                    </referencedElements>
+                  </referencedElements>
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_6RrKI7aEEe-Yw8oZULvXWQ" name="reserva.viagem.nome" content="reserva.viagem.nome" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_6RrKJLaEEe-Yw8oZULvXWQ" name="reserva" content="reserva" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Reserva">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_6RrKJbaEEe-Yw8oZULvXWQ" name="reserva" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Reserva"/>
+                    </referencedElements>
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_6RrKJraEEe-Yw8oZULvXWQ" name="viagem" content="viagem" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Viagem">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_6RrKJ7aEEe-Yw8oZULvXWQ" name="viagem" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Viagem"/>
+                    </referencedElements>
+                  </referencedElements>
+                </expression>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKKLaEEe-Yw8oZULvXWQ" key="headers">
+                <expression xmi:type="expression:TableExpression" xmi:id="_6RrKKbaEEe-Yw8oZULvXWQ"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKKraEEe-Yw8oZULvXWQ" key="charset">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKK7aEEe-Yw8oZULvXWQ" name="UTF-8" content="UTF-8" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKLLaEEe-Yw8oZULvXWQ" key="replyTo">
+                <expression xmi:type="expression:Expression" xmi:id="_6RrKLbaEEe-Yw8oZULvXWQ" content="" returnTypeFixed="true"/>
+              </parameters>
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_6RrKLraEEe-Yw8oZULvXWQ" key="attachments">
+                <expression xmi:type="expression:ListExpression" xmi:id="_6RrKL7aEEe-Yw8oZULvXWQ"/>
+              </parameters>
+            </configuration>
+          </connectors>
           <operations xmi:type="expression:Operation" xmi:id="_r4sdsLWREe-PLI5cwzmhiA">
             <leftOperand xmi:type="expression:Expression" xmi:id="_r4sdsbWREe-PLI5cwzmhiA" name="pagamento" content="pagamento" type="TYPE_VARIABLE" returnType="travel.sa.model.P01Pagamento">
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_r4tEwLWREe-PLI5cwzmhiA" name="pagamento" dataType="_olu0o60HEe-NFthnTMh3CQ" className="travel.sa.model.P01Pagamento"/>
@@ -109,7 +188,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_XRmm960XEe-NFthnTMh3CQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_XRmm9q0XEe-NFthnTMh3CQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <BoundaryIntermediateEvents xmi:type="process:BoundaryTimerEvent" xmi:id="_rc1NUK0bEe-NFthnTMh3CQ" name="7 dias" outgoing="_zi1EEK0bEe-NFthnTMh3CQ">
-            <condition xmi:type="expression:Expression" xmi:id="_u1oVIK0bEe-NFthnTMh3CQ" name="00:00:30" content="30000L" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long"/>
+            <condition xmi:type="expression:Expression" xmi:id="_u1oVIK0bEe-NFthnTMh3CQ" name="7 Days 00:00:00" content="604800000L" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Long"/>
           </BoundaryIntermediateEvents>
           <formMapping xmi:type="process:FormMapping" xmi:id="_Yn0L-a0XEe-NFthnTMh3CQ">
             <targetForm xmi:type="expression:Expression" xmi:id="_xSiQMLWREe-PLI5cwzmhiA" name="T55verificarPagamentoSinal" content="befbcb5d-4862-491d-a321-78a0b153a344" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
